@@ -55,11 +55,11 @@ export function AppHeader() {
                     <button onClick={onLogout}>Logout</button>
                 </section>
             )}
-            {!user && (
+            {/* {!user && (
                 <section className="user-info">
                     <LoginSignup />
                 </section>
-            )}
+            )} */}
         </header>
     );
 }

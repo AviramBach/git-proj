@@ -2,10 +2,10 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 
-const STORAGE_KEY = 'todoDB'
+const STORAGE_KEY = 'contactDB'
 const PAGE_SIZE = 4
 
-export const todoService = {
+export const contactService = {
     query,
     getById,
     save,
@@ -18,29 +18,30 @@ export const todoService = {
 function query(filterBy = {}, sortBy) {
     return storageService.query(STORAGE_KEY)
         .then(todos => {
-            const todosData = {
-                todoCount: todos.length,
-                doneCount: todos.filter(todo => todo.isDone).length,
-                todosToDisplay: []
-            }
-            if (filterBy.txt) {
-                const regExp = new RegExp(filterBy.txt, 'i')
-                todos = todos.filter(todo => regExp.test(todo.txt))
-            }
-            if (filterBy.isDone) {
-                if (filterBy.isDone === 'false') {
-                    todos = todos.filter(todo => todo.isDone === false)
-                } else {
-                    todos = todos.filter(todo => todo.isDone === true)
-                }
-            }
-            todos = getSortedTodos(todos, sortBy)
-            if (filterBy.pageIdx != - undefined) {
-                const startIdx = filterBy.pageIdx * PAGE_SIZE
-                todos = todos.slice(startIdx, PAGE_SIZE + startIdx)
-            }
-            todosData.todosToDisplay = todos
-            return todosData
+            // const todosData = {
+            //     todoCount: todos.length,
+            //     doneCount: todos.filter(todo => todo.isDone).length,
+            //     todosToDisplay: []
+            // }
+            // if (filterBy.txt) {
+            //     const regExp = new RegExp(filterBy.txt, 'i')
+            //     todos = todos.filter(todo => regExp.test(todo.txt))
+            // }
+            // if (filterBy.isDone) {
+            //     if (filterBy.isDone === 'false') {
+            //         todos = todos.filter(todo => todo.isDone === false)
+            //     } else {
+            //         todos = todos.filter(todo => todo.isDone === true)
+            //     }
+            // }
+            // todos = getSortedTodos(todos, sortBy)
+            // if (filterBy.pageIdx != - undefined) {
+            //     const startIdx = filterBy.pageIdx * PAGE_SIZE
+            //     todos = todos.slice(startIdx, PAGE_SIZE + startIdx)
+            // }
+            // todosData.todosToDisplay = todos
+            // return todosData
+            return todos
         })
 }
 

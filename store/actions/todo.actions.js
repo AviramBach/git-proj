@@ -1,4 +1,4 @@
-import { todoService } from "../../services/todo.service.js"
+import { contactService } from "../../services/contact.service.js"
 import { userService } from "../../services/user.service.js"
 import { ADD_TODO, REMOVE_TODO, SET_FILTER_BY, SET_IS_LOADING, SET_TODOS, UPDATE_TODO } from "../reducers/todo.reducer.js"
 import { store } from '../store.js'
@@ -6,7 +6,7 @@ import { store } from '../store.js'
 export function loadTodos(sortBy) {
     const { filterBy } = store.getState().todoModule
     store.dispatch({ type: SET_IS_LOADING, isLoading: true })
-    return todoService.query(filterBy, sortBy)
+    return contactService.query(filterBy, sortBy)
         .then(todos => {
             store.dispatch({ type: SET_TODOS, todos: todos.todosToDisplay, todoCount: todos.todoCount, doneCount: todos.doneCount })
         })
@@ -20,7 +20,7 @@ export function loadTodos(sortBy) {
 }
 
 export function removeTodo(todoId) {
-    return todoService.remove(todoId)
+    return contactService.remove(todoId)
         .then(() => {
             store.dispatch({ type: REMOVE_TODO, todoId })
         })
@@ -31,7 +31,7 @@ export function removeTodo(todoId) {
 }
 
 export function toggleTodo(todoToToggle) {
-    return todoService.save(todoToToggle)
+    return contactService.save(todoToToggle)
         .then((savedTodo) => {
             store.dispatch({ type: UPDATE_TODO, todo: savedTodo })
         })
@@ -42,7 +42,7 @@ export function toggleTodo(todoToToggle) {
 }
 
 export function addTodo(todoToAdd, loggedinUser) {
-    return todoService.save(todoToAdd)
+    return contactService.save(todoToAdd)
         .then(savedTodo => {
             store.dispatch({ type: ADD_TODO, todo: savedTodo })
             if (loggedinUser) {
