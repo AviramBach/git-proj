@@ -8,7 +8,7 @@ import { TodoFilter } from '../cmps/TodoFilter.jsx'
 import { TodoSort } from '../cmps/TodoSort.jsx'
 import { TodoList } from '../cmps/TodoList.jsx'
 
-export function TodoIndex() {
+export function ContactIndex() {
 
     const todos = useSelector(storeState => storeState.contactModule.todos)
     const filterBy = useSelector(storeState => storeState.contactModule.filterBy)
