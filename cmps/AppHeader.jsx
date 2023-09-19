@@ -6,8 +6,8 @@ import { logout } from '../store/actions/user.actions.js'
 import { LoginSignup } from './LoginSignUp.jsx'
 
 export function AppHeader() {
-    const todoCount = useSelector(storeState => storeState.todoModule.todoCount)
-    const doneCount = useSelector(storeState => storeState.todoModule.doneCount)
+    const todoCount = useSelector(storeState => storeState.contactModule.todoCount)
+    const doneCount = useSelector(storeState => storeState.contactModule.doneCount)
     const user = useSelector(storeState => storeState.userModule.loggedinUser)
 
     function onLogout() {

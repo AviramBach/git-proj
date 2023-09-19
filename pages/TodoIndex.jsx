@@ -1,7 +1,7 @@
 const { useState, useEffect } = React
 const { useSelector, useDispatch } = ReactRedux
 
-import { addTodo, loadTodos, removeTodo, setFilterBy, toggleTodo } from '../store/actions/todo.actions.js'
+import { addTodo, loadTodos, removeTodo, setFilterBy, toggleTodo } from '../store/actions/contact.actions.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import {  contactService } from '../services/contact.service.js'
 import { TodoFilter } from '../cmps/TodoFilter.jsx'
@@ -10,10 +10,10 @@ import { TodoList } from '../cmps/TodoList.jsx'
 
 export function TodoIndex() {
 
-    const todos = useSelector(storeState => storeState.todoModule.todos)
-    const filterBy = useSelector(storeState => storeState.todoModule.filterBy)
-    const loggedinUser = useSelector(storeState => storeState.userModule.loggedinUser)
-    const isLoading = useSelector(storeState => storeState.todoModule.isLoading)
+    const todos = useSelector(storeState => storeState.contactModule.todos)
+    const filterBy = useSelector(storeState => storeState.contactModule.filterBy)
+    const loggedinUser = useSelector(storeState => storeState.contactModule.loggedinUser)
+    const isLoading = useSelector(storeState => storeState.contactModule.isLoading)
     const [todoToAdd, setTodoToAdd] = useState(contactService.getEmptyTodo())
     const [sortBy, setSortBy] = useState({ type: '', desc: -1 })
 

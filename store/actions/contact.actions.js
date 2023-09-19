@@ -1,10 +1,10 @@
 import { contactService } from "../../services/contact.service.js"
 import { userService } from "../../services/user.service.js"
-import { ADD_TODO, REMOVE_TODO, SET_FILTER_BY, SET_IS_LOADING, SET_TODOS, UPDATE_TODO } from "../reducers/todo.reducer.js"
+import { ADD_TODO, REMOVE_TODO, SET_FILTER_BY, SET_IS_LOADING, SET_TODOS, UPDATE_TODO } from "../reducers/contact.reducer.js"
 import { store } from '../store.js'
 
 export function loadTodos(sortBy) {
-    const { filterBy } = store.getState().todoModule
+    const { filterBy } = store.getState().contactModule
     store.dispatch({ type: SET_IS_LOADING, isLoading: true })
     return contactService.query(filterBy, sortBy)
         .then(todos => {
@@ -45,12 +45,12 @@ export function addTodo(todoToAdd, loggedinUser) {
     return contactService.save(todoToAdd)
         .then(savedTodo => {
             store.dispatch({ type: ADD_TODO, todo: savedTodo })
-            if (loggedinUser) {
-                userService.addActivity(loggedinUser._id, todoToAdd)
-                    .catch(err => {
-                        console.error('Error adding activity:', err)
-                    })
-            }
+            // if (loggedinUser) {
+            //     userService.addActivity(loggedinUser._id, todoToAdd)
+            //         .catch(err => {
+            //             console.error('Error adding activity:', err)
+            //         })
+            // }
         })
         .catch(err => {
             console.log('Cannot add todo', err)

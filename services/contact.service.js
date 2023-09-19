@@ -18,11 +18,11 @@ export const contactService = {
 function query(filterBy = {}, sortBy) {
     return storageService.query(STORAGE_KEY)
         .then(todos => {
-            // const todosData = {
-            //     todoCount: todos.length,
-            //     doneCount: todos.filter(todo => todo.isDone).length,
-            //     todosToDisplay: []
-            // }
+            const todosData = {
+                todoCount: todos.length,
+                doneCount: todos.filter(todo => todo.isDone).length,
+                todosToDisplay: []
+            }
             // if (filterBy.txt) {
             //     const regExp = new RegExp(filterBy.txt, 'i')
             //     todos = todos.filter(todo => regExp.test(todo.txt))
@@ -39,9 +39,9 @@ function query(filterBy = {}, sortBy) {
             //     const startIdx = filterBy.pageIdx * PAGE_SIZE
             //     todos = todos.slice(startIdx, PAGE_SIZE + startIdx)
             // }
-            // todosData.todosToDisplay = todos
-            // return todosData
-            return todos
+            todosData.todosToDisplay = todos
+            return todosData
+            // return todos
         })
 }
 

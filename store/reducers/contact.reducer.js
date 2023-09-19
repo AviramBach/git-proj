@@ -16,7 +16,7 @@ const initialState = {
     isLoading: false
 }
 
-export function todoReducer(state = initialState, action = {}) {
+export function contactReducer(state = initialState, action = {}) {
     let todos
     let doneCount
 
