@@ -8,7 +8,7 @@ import { AppFooter } from "./cmps/AppFooter.jsx"
 import { HomePage } from "./pages/HomePage.jsx"
 import { AboutUs } from "./pages/AboutUs.jsx"
 import { TodoIndex } from "./pages/TodoIndex.jsx"
-import { TodoDetails } from "./pages/TodoDetails.jsx"
+import { ContactDetails } from "./pages/ContactDetails.jsx"
 import { TodoEdit } from "./pages/TodoEdit.jsx"
 import { store } from './store/store.js'
 
@@ -23,7 +23,7 @@ export function App() {
                             <Route element={<HomePage />} path="/" />
                             <Route element={<AboutUs />} path="/about" />
                             <Route element={<TodoIndex />} path="/todo" />
-                            <Route element={<TodoDetails />} path="/todo/:id" />
+                            <Route element={<ContactDetails />} path="/todo/:id" />
                             <Route element={<TodoEdit />} path="/todo/edit/:todoId" />
                         </Routes>
                     </main>
