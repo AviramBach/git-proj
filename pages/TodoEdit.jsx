@@ -1,4 +1,4 @@
-import { todoService } from "../services/todo.service.js"
+import {  contactService } from "../services/contact.service.js"
 import { showErrorMsg } from "../services/event-bus.service.js"
 
 const { useEffect, useState } = React
@@ -6,7 +6,7 @@ const { useParams, useNavigate } = ReactRouterDOM
 
 export function TodoEdit() {
 
-    const [todoToEdit, setTodoToEdit] = useState(todoService.getEmptyTodo())
+    const [todoToEdit, setTodoToEdit] = useState(contactService.getEmptyTodo())
     const navigate = useNavigate()
     const params = useParams()
 
@@ -15,7 +15,7 @@ export function TodoEdit() {
     }, [])
 
     function loadTodo() {
-        todoService.getById(params.todoId)
+        contactService.getById(params.todoId)
             .then(setTodoToEdit)
             .catch(err => {
                 console.log('Had issued in todo edit:', err);
@@ -32,7 +32,7 @@ export function TodoEdit() {
     function onSaveTodo(ev) {
         ev.preventDefault()
         todoToEdit.isDone = false
-        todoService.save(todoToEdit)
+        contactService.save(todoToEdit)
             .then(() => navigate('/todo'))
             .catch(err => {
                 showErrorMsg('Cannot save todo', err)

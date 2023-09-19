@@ -3,12 +3,13 @@ import { TodoPreview } from "./TodoPreview.jsx"
 const { Link } = ReactRouterDOM
 
 export function TodoList({ todos, onRemoveTodo, onToggleTodo }) {
-    // if (!todos.length) return <p>No todos to show..</p>
+    if (!todos) return <p>No todos to show..</p>
     return (
         <section className="todo-list">
             <ul>
-                {todos.length
-                    ? todos.map(todo =>
+                {
+                // todos.length ?
+                 todos.map(todo =>
                         <li key={todo._id}>
                             <TodoPreview
                                 todo={todo}
@@ -21,7 +22,8 @@ export function TodoList({ todos, onRemoveTodo, onToggleTodo }) {
                             </div>
                         </li>)
 
-                    : <p>No todos to show..</p>}
+                    // : <p>No todos to show..</p>
+                    }
 
             </ul>
         </section>

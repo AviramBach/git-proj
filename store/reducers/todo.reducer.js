@@ -1,4 +1,4 @@
-import { todoService } from "../../services/todo.service.js"
+import { contactService } from "../../services/contact.service.js"
 
 export const SET_TODOS = 'SET_TODOS'
 export const REMOVE_TODO = 'REMOVE_TODO'
@@ -12,7 +12,7 @@ const initialState = {
     todos: [],
     todoCount: 0,
     doneCount: 0,
-    filterBy: todoService.getDefaultFilter(),
+    filterBy: contactService.getDefaultFilter(),
     isLoading: false
 }
 

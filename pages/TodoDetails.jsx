@@ -1,7 +1,7 @@
 const { useState, useEffect } = React
 const { useParams, useNavigate } = ReactRouterDOM
 
-import { todoService } from "../services/todo.service.js"
+import { contactService } from "../services/contact.service.js"
 
 export function TodoDetails() {
     const params = useParams()
@@ -10,7 +10,7 @@ export function TodoDetails() {
     const [currTodo, setCurrTodo] = useState(null)
 
     useEffect(() => {
-        todoService.getById(params.id)
+        contactService.getById(params.id)
             .then(todo => {
                 if (!todo) return navigate('/todo')
                 setCurrTodo(todo)

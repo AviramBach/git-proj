@@ -3,7 +3,7 @@ const { useSelector, useDispatch } = ReactRedux
 
 import { addTodo, loadTodos, removeTodo, setFilterBy, toggleTodo } from '../store/actions/todo.actions.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { todoService } from '../services/todo.service.js'
+import {  contactService } from '../services/contact.service.js'
 import { TodoFilter } from '../cmps/TodoFilter.jsx'
 import { TodoSort } from '../cmps/TodoSort.jsx'
 import { TodoList } from '../cmps/TodoList.jsx'
@@ -14,7 +14,7 @@ export function TodoIndex() {
     const filterBy = useSelector(storeState => storeState.todoModule.filterBy)
     const loggedinUser = useSelector(storeState => storeState.userModule.loggedinUser)
     const isLoading = useSelector(storeState => storeState.todoModule.isLoading)
-    const [todoToAdd, setTodoToAdd] = useState(todoService.getEmptyTodo())
+    const [todoToAdd, setTodoToAdd] = useState(contactService.getEmptyTodo())
     const [sortBy, setSortBy] = useState({ type: '', desc: -1 })
 
     useEffect(() => {
@@ -63,7 +63,7 @@ export function TodoIndex() {
         addTodo(todoToAdd, loggedinUser)
             .then(() => {
                 showSuccessMsg('Todo added')
-                setTodoToAdd(todoService.getEmptyTodo())
+                setTodoToAdd(contactService.getEmptyTodo())
             })
             .catch(err => {
                 console.log('Cannot add todo', err)
@@ -75,10 +75,10 @@ export function TodoIndex() {
         <section className='todo-index'>
             {/* <h3>Todos App</h3> */}
             <main>
-                <TodoFilter
+                {/* <TodoFilter
                     onSetFilterBy={onSetFilterBy}
                     filterBy={filterBy}
-                />
+                /> */}
                 <form onSubmit={onAddTodo}>
                     <input
                         type="text"
@@ -88,7 +88,7 @@ export function TodoIndex() {
                     />
                     <button>Add</button>
                 </form>
-                <TodoSort sortBy={sortBy} setSortBy={setSortBy} />
+                {/* <TodoSort sortBy={sortBy} setSortBy={setSortBy} /> */}
                 {!isLoading && <TodoList
                     todos={todos}
                     onRemoveTodo={onRemoveTodo}
