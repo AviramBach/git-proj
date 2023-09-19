@@ -1,8 +1,8 @@
-import { TodoPreview } from "./TodoPreview.jsx"
+import { ContactPreview } from "./ContactPreview.jsx"
 
 const { Link } = ReactRouterDOM
 
-export function TodoList({ todos, onRemoveTodo, onToggleTodo }) {
+export function ContactList({ todos, onRemoveTodo, onToggleTodo }) {
     if (!todos) return <p>No todos to show..</p>
     return (
         <section className="todo-list">
@@ -11,7 +11,7 @@ export function TodoList({ todos, onRemoveTodo, onToggleTodo }) {
                 // todos.length ?
                  todos.map(todo =>
                         <li key={todo._id}>
-                            <TodoPreview
+                            <ContactPreview
                                 todo={todo}
                                 onToggleTodo={onToggleTodo}
                             />
