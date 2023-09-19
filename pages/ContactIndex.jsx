@@ -6,7 +6,7 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import {  contactService } from '../services/contact.service.js'
 import { TodoFilter } from '../cmps/TodoFilter.jsx'
 import { TodoSort } from '../cmps/TodoSort.jsx'
-import { TodoList } from '../cmps/TodoList.jsx'
+import { ContactList } from '../cmps/ContactList.jsx'
 
 export function ContactIndex() {
 
@@ -89,7 +89,7 @@ export function ContactIndex() {
                     <button>Add</button>
                 </form>
                 {/* <TodoSort sortBy={sortBy} setSortBy={setSortBy} /> */}
-                {!isLoading && <TodoList
+                {!isLoading && <ContactList
                     todos={todos}
                     onRemoveTodo={onRemoveTodo}
                     onToggleTodo={onToggleTodo}

@@ -1,4 +1,4 @@
-export function TodoPreview({ todo, onToggleTodo }) {
+export function ContactPreview({ todo, onToggleTodo }) {
     return (
         <article
             className="todo-preview"
