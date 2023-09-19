@@ -7,8 +7,8 @@ import { AppFooter } from "./cmps/AppFooter.jsx"
 
 import { HomePage } from "./pages/HomePage.jsx"
 import { AboutUs } from "./pages/AboutUs.jsx"
+import { ContactDetails } from "./pages/ContactDetails.jsx"
 import { ContactIndex } from "./pages/ContactIndex.jsx"
-import { TodoDetails } from "./pages/TodoDetails.jsx"
 import { TodoEdit } from "./pages/TodoEdit.jsx"
 import { store } from './store/store.js'
 
@@ -22,8 +22,8 @@ export function App() {
                         <Routes>
                             <Route element={<HomePage />} path="/" />
                             <Route element={<AboutUs />} path="/about" />
+                            <Route element={<ContactDetails />} path="/todo/:id" />
                             <Route element={<ContactIndex />} path="/todo" />
-                            <Route element={<TodoDetails />} path="/todo/:id" />
                             <Route element={<TodoEdit />} path="/todo/edit/:todoId" />
                         </Routes>
                     </main>

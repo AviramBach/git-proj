@@ -3,7 +3,7 @@ const { useParams, useNavigate } = ReactRouterDOM
 
 import { contactService } from "../services/contact.service.js"
 
-export function TodoDetails() {
+export function ContactDetails() {
     const params = useParams()
     const navigate = useNavigate()
 
